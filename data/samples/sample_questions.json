@@ -1,0 +1,62 @@
+[
+  {
+    "questionText": "What is the core principle of Jainism?",
+    "options": [
+      { "text": "Ahimsa (Non-violence)", "isCorrect": true },
+      { "text": "Conquest", "isCorrect": false },
+      { "text": "Wealth accumulation", "isCorrect": false },
+      { "text": "Power", "isCorrect": false }
+    ],
+    "category": "philosophy",
+    "difficulty": "easy",
+    "marks": 10
+  },
+  {
+    "questionText": "How many Tirthankaras are there in Jainism?",
+    "options": [
+      { "text": "12", "isCorrect": false },
+      { "text": "24", "isCorrect": true },
+      { "text": "36", "isCorrect": false },
+      { "text": "48", "isCorrect": false }
+    ],
+    "category": "history",
+    "difficulty": "easy",
+    "marks": 10
+  },
+  {
+    "questionText": "Who was the last Tirthankara?",
+    "options": [
+      { "text": "Rishabhanatha", "isCorrect": false },
+      { "text": "Parshvanatha", "isCorrect": false },
+      { "text": "Mahavira", "isCorrect": true },
+      { "text": "Neminatha", "isCorrect": false }
+    ],
+    "category": "history",
+    "difficulty": "medium",
+    "marks": 10
+  },
+  {
+    "questionText": "What is 'Paryushana'?",
+    "options": [
+      { "text": "A Jain temple", "isCorrect": false },
+      { "text": "A holy festival of fasting and forgiveness", "isCorrect": true },
+      { "text": "A sacred river", "isCorrect": false },
+      { "text": "A type of prayer", "isCorrect": false }
+    ],
+    "category": "festivals",
+    "difficulty": "medium",
+    "marks": 10
+  },
+  {
+    "questionText": "Where is the Dilwara Temple located?",
+    "options": [
+      { "text": "Varanasi", "isCorrect": false },
+      { "text": "Mount Abu, Rajasthan", "isCorrect": true },
+      { "text": "Delhi", "isCorrect": false },
+      { "text": "Mumbai", "isCorrect": false }
+    ],
+    "category": "geography",
+    "difficulty": "medium",
+    "marks": 10
+  }
+]
