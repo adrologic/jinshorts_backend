@@ -7,18 +7,36 @@ let firebaseInitialized = false;
 function initFirebase() {
   if (firebaseInitialized) return;
 
-  const serviceAccountPath = path.join(__dirname, '../../firebase-service-account.json');
+  try {
+    // Option 1: FIREBASE_SERVICE_ACCOUNT env var (JSON string — for Render/cloud)
+    const envServiceAccount = process.env.FIREBASE_SERVICE_ACCOUNT;
+    if (envServiceAccount) {
+      const serviceAccount = JSON.parse(envServiceAccount);
+      admin.initializeApp({
+        credential: admin.credential.cert(serviceAccount),
+      });
+      firebaseInitialized = true;
+      console.log('Firebase Admin SDK initialized (from env)');
+      return;
+    }
 
-  if (fs.existsSync(serviceAccountPath)) {
-    const serviceAccount = JSON.parse(fs.readFileSync(serviceAccountPath, 'utf8'));
-    admin.initializeApp({
-      credential: admin.credential.cert(serviceAccount),
-    });
-    firebaseInitialized = true;
-    console.log('Firebase Admin SDK initialized');
-  } else {
-    console.warn('Firebase service account not found at', serviceAccountPath);
-    console.warn('Push notifications will not work until firebase-service-account.json is added');
+    // Option 2: firebase-service-account.json file (for local dev)
+    const serviceAccountPath = path.join(__dirname, '../../firebase-service-account.json');
+    if (fs.existsSync(serviceAccountPath)) {
+      const serviceAccount = JSON.parse(fs.readFileSync(serviceAccountPath, 'utf8'));
+      admin.initializeApp({
+        credential: admin.credential.cert(serviceAccount),
+      });
+      firebaseInitialized = true;
+      console.log('Firebase Admin SDK initialized (from file)');
+      return;
+    }
+
+    console.warn('Firebase: No service account found. Push notifications disabled.');
+    console.warn('Set FIREBASE_SERVICE_ACCOUNT env var or add firebase-service-account.json');
+  } catch (err: any) {
+    console.warn('Firebase initialization failed:', err.message);
+    console.warn('Server will continue without push notifications.');
   }
 }
 
