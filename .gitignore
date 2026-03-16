@@ -5,3 +5,4 @@ uploads
 firebase-service-account.json
 *.log
 .DS_Store
+qa-test.sh
